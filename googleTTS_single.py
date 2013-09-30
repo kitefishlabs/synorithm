@@ -1,4 +1,4 @@
-import sys, pyaudio
+import sys
 import argparse
 import re
 import urllib, urllib2

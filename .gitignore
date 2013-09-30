@@ -1,4 +1,6 @@
 *.py[cod]
+*.pyc
+audio_out/*
 
 # C extensions
 *.so

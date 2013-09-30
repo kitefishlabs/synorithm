@@ -1,11 +1,11 @@
 from wordnik import *
 from phoney import *
-from googleTTS import *
-import pyaudio
+# from googleTTS import *
+# import pyaudio
 import re
 import sys
 import urllib, urllib2
-import time
+import time, random
 
 apiUrl = 'http://api.wordnik.com/v4'
 apiKey = '35fe51a6b87809e09500c047c3402b14396168459d65abed3'
@@ -76,7 +76,10 @@ def phononym(phrase): # supposed to replace a string of words w/ their hynonyms
 		if translate:
 			#print dir(translate[0])
 			#print translate[0].words[0]
-			newWords += [translate[0]]
+			try:
+				newWords += [translate[random.randint(0,4)]]
+			except IndexError:
+				newWords += [translate[0]]
 			print(translate[0] + ' ')
 		else:
 			#newWords.append(word)
@@ -87,9 +90,9 @@ def phononym(phrase): # supposed to replace a string of words w/ their hynonyms
 	return newWords
 
 # READ IN TEXT FILE
-textString = ""
-with open ("../texts/test1.txt", "r") as myfile:
-    textString = myfile.read()
+# textString = ""
+# with open ("../texts/test1.txt", "r") as myfile:
+#     textString = myfile.read()
 
 #synonym('The kitchen is lovely.')
 #synonym(textFile)
